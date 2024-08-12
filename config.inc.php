@@ -28,11 +28,11 @@ Typecho_Common::init();
 $db = new Typecho_Db('Pdo_Mysql', 'typecho_');
 $db->addServer(array (
   'host' => 'mysql.sqlpub.com:3306',
-  'user' => 'onebiogroot',
-  'password' => 'DBkEL3TL2JLWiZ9o',
+  'user' => 'aqwe22',
+  'password' => 'KkVvk8tLyQBEffuW',
   'charset' => 'utf8mb4',
   'port' => '3306',
-  'database' => 'uuti8u8hu',
+  'database' => 'qqww22',
   'engine' => 'MyISAM',
 ), Typecho_Db::READ | Typecho_Db::WRITE);
 Typecho_Db::set($db);
