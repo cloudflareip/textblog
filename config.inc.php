@@ -27,7 +27,7 @@ Typecho_Common::init();
 /** 定义数据库参数 */
 $db = new Typecho_Db('Pdo_Mysql', 'typecho_');
 $db->addServer(array (
-  'host' => 'gateway01.eu-central-1.prod.aws.tidbcloud.com',
+  'host' => 'gateway01.eu-central-1.prod.aws.tidbcloud.com:4000',
   'user' => '3wzwv1csyZo43tk.root',
   'password' => 'IEnvZHHkyvQneS9N',
   'charset' => 'utf8mb4',
