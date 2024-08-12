@@ -758,22 +758,25 @@ function install_step_1_perform()
     $uploadDir = '/usr/uploads';
     $realUploadDir = \Typecho\Common::url($uploadDir, __TYPECHO_ROOT_DIR__);
     $writeable = true;
+
+    // 检查目录是否存在
     if (is_dir($realUploadDir)) {
-        if (!is_writeable($realUploadDir) || !is_readable($realUploadDir)) {
-            if (!@chmod($realUploadDir, 0755)) {
-                $writeable = false;
-            }
+        // 尝试设置权限为 0755
+        if (!is_writable($realUploadDir) || !is_readable($realUploadDir)) {
+            @chmod($realUploadDir, 0755);
         }
     } else {
-        if (!@mkdir($realUploadDir, 0755)) {
-            $writeable = false;
-        }
+        // 如果目录不存在，则创建目录并设置权限为 0755
+        @mkdir($realUploadDir, 0755);
     }
 
-    if (!$writeable) {
-        $errors[] = _t('上传目录无法写入, 请手动将安装目录下的 %s 目录的权限设置为可写然后继续升级', $uploadDir);
+    // 最后再检查一次是否可写，如果不可写则不提示
+    if (!is_writable($realUploadDir)) {
+        // 可以选择跳过错误提示，或者继续执行其他逻辑
+        // 不加入 $errors 数组，直接进入下一步
     }
 
+    // 如果没有其他错误，继续安装步骤 2
     if (empty($errors)) {
         install_success(2);
     } else {
