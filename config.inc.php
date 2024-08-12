@@ -27,12 +27,12 @@ Typecho_Common::init();
 /** 定义数据库参数 */
 $db = new Typecho_Db('Pdo_Mysql', 'typecho_');
 $db->addServer(array (
-  'host' => 'mysql.sqlpub.com:3306',
-  'user' => 'aqwe22',
-  'password' => 'KkVvk8tLyQBEffuW',
+  'host' => 'gateway01.eu-central-1.prod.aws.tidbcloud.com',
+  'user' => '3wzwv1csyZo43tk.root',
+  'password' => 'IEnvZHHkyvQneS9N',
   'charset' => 'utf8mb4',
-  'port' => '3306',
-  'database' => 'qqww22',
+  'port' => '4000',
+  'database' => 'oneblogadmin',
   'engine' => 'MyISAM',
 ), Typecho_Db::READ | Typecho_Db::WRITE);
 Typecho_Db::set($db);
